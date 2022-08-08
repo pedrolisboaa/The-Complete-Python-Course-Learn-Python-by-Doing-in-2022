@@ -10,6 +10,6 @@
 # with open('dados.txt', 'r') as file:
 #     print(file.read())
 
-with open('nomes.txt', 'a') as file:
+with open('../nomes.txt', 'a') as file:
     nome = input('Informe seu nome: ')
     file.write(nome)
