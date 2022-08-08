@@ -1,0 +1,16 @@
+{
+    "amigos":[
+        {
+        "nome": "Stanley",
+        "signo": "leão"
+        },
+        {
+        "nome": "Pedro",
+        "signo": "Virgem"
+        },
+        {
+        "nome": "Ana Maria",
+        "signo": "Libra"
+        }
+    ]
+}

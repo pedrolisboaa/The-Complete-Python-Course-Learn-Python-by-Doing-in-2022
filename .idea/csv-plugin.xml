@@ -10,6 +10,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\6 - Files\6 - conversor csv para json\arquivo.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\6 - Files\6 - conversor csv para json\teste.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
