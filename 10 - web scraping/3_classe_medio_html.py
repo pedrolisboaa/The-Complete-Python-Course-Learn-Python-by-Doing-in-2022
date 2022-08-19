@@ -31,31 +31,33 @@ ITEM_HTML = '''<html><head></head><body>
 </body></html>
 '''
 
-soup = BeautifulSoup(ITEM_HTML, 'html.parser')
+
+class AnalisandoHTml:
+    def __init__(self, page):
+        self.page = BeautifulSoup(page, 'html.parser')
+
+    def buscar_nome_do_livro(self):
+        local = 'article.product_pod h3 a'  # localização pelo CSS
+        link_livro = self.page.select_one(local)
+        nome_livro = link_livro.attrs['title']
+
+        return nome_livro
+
+    def buscar_link_do_livro(self):
+        local = 'article.product_pod div.image_container a'
+        link = self.page.select_one(local)
+        endereco_link = link.attrs['href']
+        return endereco_link
+
+    def buscar_preco_do_livro(self):
+        valor_livro = float(self.page.find('p', {'class': 'price_color'}).string[1:])
+        return valor_livro
 
 
-def buscar_nome_do_livro():
-    local = 'article.product_pod h3 a'  # localização pelo CSS
-    link_livro = soup.select_one(local)
-    nome_livro = link_livro.attrs['title']
+if __name__ == '__main__':
 
-    return nome_livro
+    pagina = AnalisandoHTml(ITEM_HTML)
 
-
-def buscar_link_do_livro():
-    local = 'article.product_pod div.image_container a'
-    link = soup.select_one(local)
-    endereco_link = link.attrs['href']
-    return endereco_link
-
-
-def buscar_preco_do_livro():
-    valor_livro = float(soup.find('p', {'class': 'price_color'}).string[1:])
-    return valor_livro
-
-
-
-print(buscar_nome_do_livro())
-print(buscar_link_do_livro())
-print(buscar_preco_do_livro())
-print(type(buscar_preco_do_livro()))
+    print(pagina.buscar_preco_do_livro())
+    print(pagina.buscar_nome_do_livro())
+    print(pagina.buscar_link_do_livro())
